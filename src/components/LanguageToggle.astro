@@ -1,0 +1,157 @@
+---
+---
+
+<button
+  transition:persist
+  id="lang-toggle-btn"
+  class="appearance-none border-none flex items-center hover:scale-125 transition text-xs font-bold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 cursor-pointer"
+>
+  <span id="lang-label">ES</span>
+</button>
+
+<script>
+  const LANG_KEY = "lang"
+
+  const es: Record<string, string> = {
+    "nav.experience": "Experiencia",
+    "nav.about": "Sobre mí",
+    "nav.education": "Educación",
+    "nav.projects": "Proyectos",
+    "nav.contact": "Contacto",
+    "hero.badge": "Software Developer | .NET & Databases",
+    "hero.description": "Estudiante de Ingeniería en Sistemas y profesional de IT con experiencia en administración y gestión de bases de datos. También cuento con experiencia en desarrollo de aplicaciones utilizando C#/.NET. Perfil orientado a la resolución de problemas, la optimización de procesos y la construcción de soluciones de software.",
+    "hero.contact": "Contacto",
+    "hero.cv": "CV",
+    "section.experience": "Experiencia laboral",
+    "section.about": "Sobre mí",
+    "section.education": "Educación",
+    "section.projects": "Proyectos",
+    "about.p1": "Estudiante de Ingeniería en Sistemas y desarrollador con experiencia en administración y gestión de bases de datos, actualmente trabajando con SQL Server. También cuento con experiencia en desarrollo de aplicaciones utilizando C# y .NET, y conocimientos en diseño de software y arquitectura en capas.",
+    "about.p2": "Experiencia práctica en el desarrollo y mantenimiento de soluciones de software, trabajando con tecnologías como C#, .NET, SQL Server, ADO.NET y Entity Framework. Mi formación y experiencia me permiten abordar problemas desde una perspectiva tanto de desarrollo como de datos, con foco en la resolución de problemas y la construcción de soluciones eficientes.",
+    "about.p3": "Actualmente curso el tercer año de Ingeniería en Sistemas, complementando mi experiencia profesional con una formación integral en desarrollo de software, bases de datos y arquitectura de sistemas. Me interesa continuar creciendo en el área de tecnología y desarrollar soluciones que combinen software, datos y automatización.",
+    "projects.code": "Code",
+    "projects.preview": "Preview",
+    "footer.rights": "Todos los derechos reservados.",
+    "footer.about": "Sobre mí",
+    "footer.experience": "Experiencia",
+    "footer.education": "Educación",
+    "footer.projects": "Proyectos",
+    "footer.linkedin": "LinkedIn",
+    "footer.github": "GitHub",
+    "footer.contact": "Contacto",
+    "edu.0.title": "Ingeniería en Sistemas Informáticos",
+    "edu.0.date": "2023 - En curso",
+    "edu.0.desc": "Formación en Ingeniería en Sistemas Informáticos, actualmente cursando el tercer año. Adquirí conocimientos en desarrollo de software, bases de datos, programación orientada a objetos, arquitectura de software, ingeniería de software y redes.",
+    "edu.0.tags": "C# (.NET Core) · SQL Server · ADO.NET · POO · UML · Arquitectura en Capas · Patrones de Diseño · Bases de Datos",
+    "edu.1.title": "Técnico de Informática Personal y Profesional",
+    "edu.1.date": "2016 - 2022",
+    "edu.1.desc": "Formación técnica orientada al desarrollo de conocimientos en informática, programación, hardware, redes y sistemas operativos, con una base práctica en tecnología y resolución de problemas.",
+    "edu.1.tags": "Programación · Hardware · Redes · Sistemas Operativos · Bases de Datos",
+    "exp.0.date": "Julio 2026 - Presente",
+    "exp.0.title": "DBA",
+    "exp.0.desc": "Administración y mantenimiento de bases de datos, monitoreo de rendimiento y disponibilidad, realización de backups y tareas de recuperación, soporte a usuarios y equipos de desarrollo, y documentación de procedimientos y procesos. Trabajo con bases de datos relacionales y no relacionales, incluyendo SQL Server, MySQL, PostgreSQL, Oracle y MongoDB.",
+    "exp.1.date": "Agosto 2025 - Julio 2026",
+    "exp.1.title": "Chatbot Developer",
+    "exp.1.desc": "Desarrollo e implementación de chatbots y asistentes personalizados utilizando inteligencia artificial. Integración con APIs y plataformas de mensajería como WhatsApp/Meta, desarrollo de automatizaciones mediante Google Apps Script y conexión con servicios externos. Diseño y mantenimiento de flujos conversacionales personalizados y automatización de procesos de negocio.",
+    "exp.2.date": "Marzo 2021 - Diciembre 2022",
+    "exp.2.title": "Soporte IT",
+    "exp.2.desc": "Armado, configuración, mantenimiento y reparación de computadoras, incluyendo limpieza y reemplazo de componentes. Resolución de incidencias técnicas relacionadas con sistemas operativos y software de usuario final, brindando soporte técnico presencial y remoto a usuarios.",
+    "proj.0.desc": "Análisis de más de 100.000 órdenes reales de un e-commerce brasileño. Identifica qué categorías de producto tienen márgenes negativos por alto costo de flete, cómo las demoras en entrega impactan la satisfacción del cliente y cuáles son los estados con peor performance logística.",
+    "proj.1.desc": "Pipeline financiero que consume datos reales del mercado vía Alpha Vantage API. Calcula retorno acumulado, volatilidad y ratio riesgo/retorno para 5 acciones del Merval (YPF, GGAL, MELI, TS, PAM), identifica picos de volumen inusuales y compara el desempeño de cada acción en los últimos 100 días."
+  }
+
+  const en: Record<string, string> = {
+    "nav.experience": "Experience",
+    "nav.about": "About me",
+    "nav.education": "Education",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+    "hero.badge": "Software Developer | .NET & Databases",
+    "hero.description": "Computer Science student and IT professional with experience in database administration and management. I also have experience in application development using C#/.NET. Focused on problem-solving, process optimization, and building software solutions.",
+    "hero.contact": "Contact",
+    "hero.cv": "Resume",
+    "section.experience": "Work Experience",
+    "section.about": "About Me",
+    "section.education": "Education",
+    "section.projects": "Projects",
+    "about.p1": "Computer Science student and developer with experience in database administration and management, currently working with SQL Server. I also have experience in application development using C# and .NET, with knowledge in software design and layered architecture.",
+    "about.p2": "Hands-on experience in software development and maintenance, working with technologies like C#, .NET, SQL Server, ADO.NET, and Entity Framework. My education and experience allow me to approach problems from both a development and data perspective, focused on problem-solving and building efficient solutions.",
+    "about.p3": "Currently in my third year of Computer Science, complementing my professional experience with comprehensive training in software development, databases, and systems architecture. I'm interested in continuing to grow in the technology field and developing solutions that combine software, data, and automation.",
+    "projects.code": "Code",
+    "projects.preview": "Preview",
+    "footer.rights": "All rights reserved.",
+    "footer.about": "About me",
+    "footer.experience": "Experience",
+    "footer.education": "Education",
+    "footer.projects": "Projects",
+    "footer.linkedin": "LinkedIn",
+    "footer.github": "GitHub",
+    "footer.contact": "Contact",
+    "edu.0.title": "Computer Systems Engineering",
+    "edu.0.date": "2023 - In progress",
+    "edu.0.desc": "Computer Systems Engineering program, currently in my third year. Acquired knowledge in software development, databases, object-oriented programming, software architecture, software engineering, and networking.",
+    "edu.0.tags": "C# (.NET Core) · SQL Server · ADO.NET · OOP · UML · Layered Architecture · Design Patterns · Databases",
+    "edu.1.title": "Personal and Professional IT Technician",
+    "edu.1.date": "2016 - 2022",
+    "edu.1.desc": "Technical education focused on developing knowledge in computer science, programming, hardware, networking, and operating systems, with a practical foundation in technology and problem-solving.",
+    "edu.1.tags": "Programming · Hardware · Networking · Operating Systems · Databases",
+    "exp.0.date": "July 2026 - Present",
+    "exp.0.title": "DBA",
+    "exp.0.desc": "Database administration and maintenance, performance and availability monitoring, backup and recovery tasks, user and development team support, and documentation of procedures and processes. Working with relational and non-relational databases including SQL Server, MySQL, PostgreSQL, Oracle, and MongoDB.",
+    "exp.1.date": "August 2025 - July 2026",
+    "exp.1.title": "Chatbot Developer",
+    "exp.1.desc": "Development and implementation of custom chatbots and assistants using artificial intelligence. Integration with APIs and messaging platforms like WhatsApp/Meta, automation development using Google Apps Script and connection with external services. Design and maintenance of custom conversational flows and business process automation.",
+    "exp.2.date": "March 2021 - December 2022",
+    "exp.2.title": "IT Support",
+    "exp.2.desc": "Assembly, configuration, maintenance and repair of computers, including cleaning and replacement of components. Resolution of technical incidents related to operating systems and end-user software, providing on-site and remote technical support to users.",
+    "proj.0.desc": "Analysis of over 100,000 real orders from a Brazilian e-commerce. Identifies which product categories have negative margins due to high shipping costs, how delivery delays impact customer satisfaction, and which states have the worst logistics performance.",
+    "proj.1.desc": "Financial pipeline that fetches real market data via Alpha Vantage API. Calculates cumulative return, volatility, and risk/return ratio for 5 Merval stocks (YPF, GGAL, MELI, TS, PAM), identifies unusual volume spikes, and compares each stock's performance over the last 100 days."
+  }
+
+  const translations: Record<string, Record<string, string>> = { es, en }
+
+  const getLang = (): string => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem(LANG_KEY) || "es"
+    }
+    return "es"
+  }
+
+  const applyTranslations = (t: Record<string, string>, lang: string) => {
+    document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n")
+      if (key && key.endsWith(".tags")) {
+        const tagsAttr = el.getAttribute(`data-i18n-tags-${lang}`)
+        if (tagsAttr) {
+          try {
+            const tags: string[] = JSON.parse(tagsAttr)
+            el.innerHTML = tags
+              .map((tag) => `<li><span class="rounded-full text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 py-1 px-2.5 font-medium">${tag}</span></li>`)
+              .join("")
+          } catch {}
+        }
+      } else if (key && t[key] !== undefined) {
+        el.textContent = t[key]
+      }
+    })
+  }
+
+  const updateLang = () => {
+    const lang = getLang()
+    const t = translations[lang] || translations["es"]
+    applyTranslations(t, lang)
+    const label = document.getElementById("lang-label")
+    if (label) label.textContent = lang.toUpperCase()
+    document.documentElement.setAttribute("lang", lang)
+  }
+
+  updateLang()
+
+  document.getElementById("lang-toggle-btn")?.addEventListener("click", () => {
+    const next = getLang() === "es" ? "en" : "es"
+    localStorage.setItem(LANG_KEY, next)
+    updateLang()
+  })
+
+  document.addEventListener("astro:after-swap", updateLang)
+</script>

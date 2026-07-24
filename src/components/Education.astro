@@ -1,0 +1,42 @@
+---
+import educationData from "@/data/education.json"
+---
+
+<div class="flex flex-col gap-y-8">
+  {
+    educationData.map((edu, i) => (
+      <article class="p-6 rounded-xl bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10">
+        <div class="flex items-start gap-5">
+          <img
+            src={edu.logo}
+            alt={edu.institution}
+            class="w-16 h-16 object-contain rounded-lg bg-white dark:bg-slate-800 p-1 ring-1 ring-slate-200 dark:ring-white/10 mix-blend-multiply dark:mix-blend-normal flex-shrink-0"
+          />
+          <div class="flex flex-col gap-1">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n={`edu.${i}.title`}>
+              {edu.title_es}
+            </h3>
+            <span class="text-sm font-medium text-sky-700 dark:text-sky-400">
+              {edu.institution}
+            </span>
+            <time class="text-sm text-slate-500 dark:text-slate-400" data-i18n={`edu.${i}.date`}>
+              {edu.date_es}
+            </time>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-700 dark:text-slate-300 text-pretty" data-i18n={`edu.${i}.desc`}>
+          {edu.description_es}
+        </p>
+        <ul class="flex flex-row flex-wrap mt-4 gap-2" data-i18n={`edu.${i}.tags`} data-i18n-tags-es={JSON.stringify(edu.tags_es)} data-i18n-tags-en={JSON.stringify(edu.tags_en)}>
+          {edu.tags_es.map((tag) => (
+            <li>
+              <span class="rounded-full text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 py-1 px-2.5 font-medium">
+                {tag}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
+</div>

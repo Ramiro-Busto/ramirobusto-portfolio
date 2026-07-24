@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Olist E-Commerce Analysis",
+    "description_es": "Análisis de más de 100.000 órdenes reales de un e-commerce brasileño. Identifica qué categorías de producto tienen márgenes negativos por alto costo de flete, cómo las demoras en entrega impactan la satisfacción del cliente y cuáles son los estados con peor performance logística.",
+    "description_en": "Analysis of over 100,000 real orders from a Brazilian e-commerce. Identifies which product categories have negative margins due to high shipping costs, how delivery delays impact customer satisfaction, and which states have the worst logistics performance.",
+    "link": null,
+    "github": "https://github.com/Ramiro-Busto/olist-ecommerce-analysis",
+    "image": "/projects/brazilian_ecommerce_project.webp",
+    "tags": ["PYTHON", "PANDAS", "SQL", "POWERBI", "GIT"]
+  },
+  {
+    "title": "Merval Financial Analysis",
+    "description_es": "Pipeline financiero que consume datos reales del mercado vía Alpha Vantage API. Calcula retorno acumulado, volatilidad y ratio riesgo/retorno para 5 acciones del Merval (YPF, GGAL, MELI, TS, PAM), identifica picos de volumen inusuales y compara el desempeño de cada acción en los últimos 100 días.",
+    "description_en": "Financial pipeline that fetches real market data via Alpha Vantage API. Calculates cumulative return, volatility, and risk/return ratio for 5 Merval stocks (YPF, GGAL, MELI, TS, PAM), identifies unusual volume spikes, and compares each stock's performance over the last 100 days.",
+    "link": null,
+    "github": "https://github.com/Ramiro-Busto/merval-financial-analysis",
+    "image": "/projects/merval-analysis.webp",
+    "tags": ["PYTHON", "PANDAS", "API", "SQL", "POWERBI", "GIT"]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "title_es": "Ingeniería en Sistemas Informáticos",
+    "title_en": "Computer Systems Engineering",
+    "institution": "Universidad Abierta Interamericana (UAI)",
+    "date_es": "2023 - En curso",
+    "date_en": "2023 - In progress",
+    "description_es": "Formación en Ingeniería en Sistemas Informáticos, actualmente cursando el tercer año. Adquirí conocimientos en desarrollo de software, bases de datos, programación orientada a objetos, arquitectura de software, ingeniería de software y redes.",
+    "description_en": "Computer Systems Engineering program, currently in my third year. Acquired knowledge in software development, databases, object-oriented programming, software architecture, software engineering, and networking.",
+    "tags_es": ["C# (.NET Core)", "SQL Server", "ADO.NET", "POO", "UML", "Arquitectura en Capas", "Patrones de Diseño", "Bases de Datos"],
+    "tags_en": ["C# (.NET Core)", "SQL Server", "ADO.NET", "OOP", "UML", "Layered Architecture", "Design Patterns", "Databases"],
+    "logo": "/education/uai-logo.png"
+  },
+  {
+    "title_es": "Técnico de Informática Personal y Profesional",
+    "title_en": "Personal and Professional IT Technician",
+    "institution": "Escuela Técnica Florentino Ameghino",
+    "date_es": "2016 - 2022",
+    "date_en": "2016 - 2022",
+    "description_es": "Formación técnica orientada al desarrollo de conocimientos en informática, programación, hardware, redes y sistemas operativos, con una base práctica en tecnología y resolución de problemas.",
+    "description_en": "Technical education focused on developing knowledge in computer science, programming, hardware, networking, and operating systems, with a practical foundation in technology and problem-solving.",
+    "tags_es": ["Programación", "Hardware", "Redes", "Sistemas Operativos", "Bases de Datos"],
+    "tags_en": ["Programming", "Hardware", "Networking", "Operating Systems", "Databases"],
+    "logo": "/education/ameghino-logo.png"
+  }
+]

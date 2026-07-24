@@ -1,0 +1,57 @@
+---
+import LinkInline from "./LinkInline.astro"
+import ArrowRight from "./icons/ArrowRight.astro"
+
+interface Props {
+  title: string
+  company: string
+  description: string
+  link?: string
+  date: string
+  current?: boolean
+}
+
+const { title, company, description, link, date, current = false } = Astro.props
+---
+
+<div
+  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-slate-200 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
+>
+  <div class="relative pb-12 md:col-span-2">
+    <div class="sticky top-0">
+      <div class="flex items-center">
+        <span
+          class="absolute -left-[42px] flex size-[14px] items-center justify-center"
+          aria-hidden="true"
+        >
+          {current && (
+            <span class="animate-ping motion-reduce:animate-none absolute inline-flex size-full rounded-full bg-slate-900/40 dark:bg-white/40"></span>
+          )}
+          <span
+            class={`relative inline-flex size-[10px] rounded-full bg-slate-900 dark:bg-white ${current ? "shadow-[0_0_8px_2px_rgba(15,23,42,0.45)] dark:shadow-[0_0_8px_2px_rgba(255,255,255,0.45)]" : ""}`}
+          ></span>
+        </span>
+      </div>
+      <div class="mt-2 p-4 rounded-xl bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">{title}</h3>
+        <h4 class="font-semibold text-lg text-sky-700 dark:text-sky-400">{company}</h4>
+        <time class="p-0 m-0 text-sm text-slate-500 dark:text-slate-400">{date}</time>
+      </div>
+    </div>
+  </div>
+  <div class="relative pb-4 md:col-span-3">
+    <div class="p-4 rounded-xl bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300">
+      {description}
+      {
+        link && (
+          <div class="mt-3">
+            <LinkInline href={link}>
+              Saber más sobre {company}{" "}
+              <ArrowRight class="size-5" aria-hidden="true" />
+            </LinkInline>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>

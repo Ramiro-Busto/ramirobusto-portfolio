@@ -1,0 +1,28 @@
+[
+  {
+    "date_es": "Julio 2026 - Presente",
+    "date_en": "July 2026 - Present",
+    "title": "DBA",
+    "company": "PSS | Beyond Cybersecurity",
+    "description_es": "Administración y mantenimiento de bases de datos, monitoreo de rendimiento y disponibilidad, realización de backups y tareas de recuperación, soporte a usuarios y equipos de desarrollo, y documentación de procedimientos y procesos. Trabajo con bases de datos relacionales y no relacionales, incluyendo SQL Server, MySQL, PostgreSQL, Oracle y MongoDB.",
+    "description_en": "Database administration and maintenance, performance and availability monitoring, backup and recovery tasks, user and development team support, and documentation of procedures and processes. Working with relational and non-relational databases including SQL Server, MySQL, PostgreSQL, Oracle, and MongoDB.",
+    "current": true
+  },
+  {
+    "date_es": "Agosto 2025 - Julio 2026",
+    "date_en": "August 2025 - July 2026",
+    "title": "Chatbot Developer",
+    "company": "Runamatic",
+    "description_es": "Desarrollo e implementación de chatbots y asistentes personalizados utilizando inteligencia artificial. Integración con APIs y plataformas de mensajería como WhatsApp/Meta, desarrollo de automatizaciones mediante Google Apps Script y conexión con servicios externos. Diseño y mantenimiento de flujos conversacionales personalizados y automatización de procesos de negocio.",
+    "description_en": "Development and implementation of custom chatbots and assistants using artificial intelligence. Integration with APIs and messaging platforms like WhatsApp/Meta, automation development using Google Apps Script and connection with external services. Design and maintenance of custom conversational flows and business process automation.",
+    "current": false
+  },
+  {
+    "date_es": "Marzo 2021 - Diciembre 2022",
+    "date_en": "March 2021 - December 2022",
+    "title": "IT Support",
+    "company": "Florentino Ameghino",
+    "description_es": "Armado, configuración, mantenimiento y reparación de computadoras, incluyendo limpieza y reemplazo de componentes. Resolución de incidencias técnicas relacionadas con sistemas operativos y software de usuario final, brindando soporte técnico presencial y remoto a usuarios.",
+    "description_en": "Assembly, configuration, maintenance and repair of computers, including cleaning and replacement of components. Resolution of technical incidents related to operating systems and end-user software, providing on-site and remote technical support to users."
+  }
+]

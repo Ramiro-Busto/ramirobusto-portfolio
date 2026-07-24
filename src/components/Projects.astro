@@ -1,0 +1,68 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import ExternalLink from "./icons/ExternalLink.astro"
+import LinkButton from "./LinkButton.astro"
+import projectsData from "@/data/projects.json"
+
+const TAGS: Record<string, { name: string; class: string }> = {
+  PYTHON: { name: "Python", class: "bg-[#3776AB] text-white" },
+  PANDAS: { name: "Pandas", class: "bg-[#150458] text-white" },
+  SQL: { name: "SQL Server", class: "bg-[#CC2927] text-white" },
+  POWERBI: { name: "Power BI", class: "bg-[#F2C811] text-slate-900" },
+  GIT: { name: "Git", class: "bg-[#F05032] text-white" },
+  API: { name: "API", class: "bg-slate-700 text-white" },
+}
+
+const PROJECTS = projectsData.map((project) => ({
+  ...project,
+  tags: project.tags.map((key) => TAGS[key]),
+}))
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description_es, tags, link, github }, i) => (
+    <article class="flex flex-col space-x-0 space-y-6 group md:flex-row md:space-x-10 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition-all duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-[0_20px_60px_-10px_rgba(15,23,42,0.2)] lg:border lg:border-slate-200 dark:lg:border-slate-700 lg:hover:border-slate-900/30 dark:lg:hover:border-white/30 lg:hover:bg-slate-50 dark:lg:hover:bg-slate-800/50">
+      <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg flex flex-col justify-center">
+    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100">
+      {title}
+    </h3>
+    <ul class="flex flex-row flex-wrap mt-3 gap-2">
+      {tags.map((tag) => (
+        <li>
+          <span
+            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2.5 font-medium`}
+          >
+            {tag.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-3 text-slate-700 dark:text-slate-400 text-pretty" data-i18n={`proj.${i}.desc`}>{description_es}</p>
+    <footer class="flex items-center mt-4 gap-x-4">
+      {github && (
+        <LinkButton href={github}>
+          <GitHub class="size-5" />
+          <span data-i18n="projects.code">Code</span>
+        </LinkButton>
+      )}
+      {link && (
+        <LinkButton href={link}>
+          <ExternalLink class="size-4" />
+          <span data-i18n="projects.preview">Preview</span>
+        </LinkButton>
+      )}
+    </footer>
+  </div>
+</article>
+    ))
+  }
+</div>

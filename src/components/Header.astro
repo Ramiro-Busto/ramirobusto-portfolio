@@ -1,0 +1,129 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+import LanguageToggle from "./LanguageToggle.astro"
+
+const navItems = [
+  {
+    title: "Experiencia",
+    i18nKey: "nav.experience",
+    label: "experiencia",
+    url: "/#experiencia",
+  },
+  {
+    title: "Sobre mí",
+    i18nKey: "nav.about",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
+  },
+  {
+    title: "Educación",
+    i18nKey: "nav.education",
+    label: "educacion",
+    url: "/#educacion",
+  },
+  {
+    title: "Proyectos",
+    i18nKey: "nav.projects",
+    label: "proyectos",
+    url: "/#proyectos",
+  },
+  {
+    title: "Contacto",
+    i18nKey: "nav.contact",
+    label: "contacto",
+    url: "mailto:ramirobus81@gmail.com",
+  },
+]
+---
+
+<header
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4"
+>
+  <nav
+    class="header-nav flex gap-x-1 px-4 py-1.5 text-sm font-medium rounded-full text-slate-600 dark:text-slate-300 justify-center items-center border border-transparent"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="nav-link relative text-xs sm:text-sm block px-1.5 sm:px-3 py-2 sm:py-1.5 rounded-full transition-colors duration-200 hover:text-slate-900 dark:hover:text-white"
+          aria-label={link.label}
+          href={link.url}
+        >
+          <span data-i18n={link.i18nKey}>{link.title}</span>
+        </a>
+      ))
+    }
+    <div class="ml-2 pl-2 border-l border-slate-300/30 dark:border-white/10 flex items-center gap-2">
+      <LanguageToggle />
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-slate-900", "dark:text-white", "bg-slate-900/10")
+              item.classList.remove("text-slate-600", "dark:text-slate-300")
+            } else {
+              item.classList.remove("text-slate-900", "dark:text-white", "bg-slate-900/10")
+              item.classList.add("text-slate-600", "dark:text-slate-300")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+  .header-nav {
+    animation: nav-appear 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  .header-nav {
+    @apply dark:bg-slate-900/80 bg-white/60;
+  }
+
+  .nav-link.text-slate-900 {
+    @apply font-semibold;
+  }
+
+  @keyframes nav-appear {
+    0% {
+      @apply dark:bg-slate-900/0 bg-white/0 border-transparent shadow-none;
+    }
+    to {
+      @apply shadow-lg ring-1 backdrop-blur-md ring-white/10 dark:ring-white/5 border-slate-200/20 dark:border-white/5;
+    }
+  }
+</style>
