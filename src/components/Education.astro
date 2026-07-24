@@ -5,7 +5,7 @@ import educationData from "@/data/education.json"
 <div class="flex flex-col gap-y-8">
   {
     educationData.map((edu, i) => (
-      <article class="p-6 rounded-xl bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10">
+      <article class="p-6 rounded-xl bg-slate-100/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10" data-reveal style={`transition-delay: ${i * 120}ms`}>
         <div class="flex items-start gap-5">
           <img
             src={edu.logo}

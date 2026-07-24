@@ -5,6 +5,7 @@ const personalImageAlt = "Ramiro Busto"
 <article class="flex flex-col items-center justify-center gap-8 text-slate-700 dark:text-slate-300 md:flex-row">
   <div
     class="[&>p]:mb-4 text-pretty order-2 md:order-1"
+    data-reveal style="transition-delay: 0ms"
   >
     <p data-i18n="about.p1">
       Estudiante de Ingeniería en Sistemas y desarrollador con experiencia en administración y gestión de bases de datos, actualmente trabajando con SQL Server. También cuento con experiencia en desarrollo de aplicaciones utilizando C# y .NET, y conocimientos en diseño de software y arquitectura en capas.
@@ -19,6 +20,6 @@ const personalImageAlt = "Ramiro Busto"
     </p>
   </div>
 
-  <img width="200" height="200" src="/me.png" alt={personalImageAlt} class="order-1 object-contain w-64 h-64 p-2 md:order-2 lg:p-2 lg:w-64 lg:h-64 rounded-2xl bg-slate-200 dark:bg-slate-800">
+  <img width="200" height="200" src="/me.png" alt={personalImageAlt} class="order-1 object-contain w-40 h-40 sm:w-52 sm:h-52 md:order-2 md:w-64 md:h-64 p-2 rounded-full bg-slate-200 dark:bg-slate-800 shadow-md dark:shadow-slate-700/50 ring-1 ring-slate-300/50 dark:ring-white/10" data-reveal style="transition-delay: 150ms">
 
 </article>
